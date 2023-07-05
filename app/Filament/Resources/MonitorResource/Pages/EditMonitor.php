@@ -17,4 +17,13 @@ class EditMonitor extends EditRecord
             Actions\DeleteAction::make(),
         ];
     }
+
+    protected function mutateFormDataBeforeSave(array $data): array
+    {
+
+        $data['look_for_string'] ??= '';
+        $data['certificate_check_failure_reason'] ??= '';
+
+        return $data;
+    }
 }

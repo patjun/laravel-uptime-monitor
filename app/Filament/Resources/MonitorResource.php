@@ -27,14 +27,13 @@ class MonitorResource extends Resource
         return $form
             ->schema([
 
-                //             $table->string('url')->unique();
+                //            $table->string('url')->unique();
                 TextInput::make('url')
                     ->afterStateHydrated(function (TextInput $component, $state) {
-                        // url is Spatie\Url
-                        $component->state($state->__toString());
+                        if (!is_null($state))
+                            $component->state($state->__toString());
                     })
-                    ->required()
-                    ->disabled(),
+                    ->required(),
                 //            $table->boolean('uptime_check_enabled')->default(true);
                 Toggle::make('uptime_check_enabled'),
                 //            $table->string('look_for_string')->default('');
@@ -145,7 +144,7 @@ class MonitorResource extends Resource
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
-//                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
@@ -165,7 +164,7 @@ class MonitorResource extends Resource
             'index' => Pages\ListMonitors::route('/'),
             'create' => Pages\CreateMonitor::route('/create'),
             'view' => Pages\ViewMonitor::route('/{record}'),
-//            'edit' => Pages\EditMonitor::route('/{record}/edit'),
+            'edit' => Pages\EditMonitor::route('/{record}/edit'),
         ];
     }
 }
