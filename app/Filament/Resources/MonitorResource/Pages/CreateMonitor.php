@@ -12,10 +12,6 @@ class CreateMonitor extends CreateRecord
 
     protected function mutateFormDataBeforeCreate(array $data): array
     {
-
-        ray()->clearAll();
-        ray($data);
-
         $data['uptime_check_interval_in_minutes'] ??= 5;
         $data['uptime_status'] ??= 'not yet checked';
         $data['uptime_check_times_failed_in_a_row'] ??= '0';
@@ -25,7 +21,6 @@ class CreateMonitor extends CreateRecord
         $data['certificate_status'] ??= '';
         $data['uptime_check_additional_headers'] ??= [];
 
-        ray($data);
         return $data;
     }
 }

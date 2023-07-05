@@ -20,7 +20,6 @@ class EditMonitor extends EditRecord
 
     protected function mutateFormDataBeforeSave(array $data): array
     {
-
         $data['look_for_string'] ??= '';
         $data['certificate_check_failure_reason'] ??= '';
         $data['certificate_status'] ??= '';
