@@ -23,6 +23,7 @@ class EditMonitor extends EditRecord
 
         $data['look_for_string'] ??= '';
         $data['certificate_check_failure_reason'] ??= '';
+        $data['certificate_status'] ??= '';
 
         return $data;
     }

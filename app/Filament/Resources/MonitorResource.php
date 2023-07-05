@@ -39,8 +39,8 @@ class MonitorResource extends Resource
                 //            $table->string('look_for_string')->default('');
                 TextInput::make('look_for_string'),
                 //            $table->string('uptime_check_interval_in_minutes')->default(5);
-                TextInput::make('uptime_check_interval_in_minutes'),
-
+                TextInput::make('uptime_check_interval_in_minutes')
+                    ->required(),
                 //            $table->string('uptime_status')->default(UptimeStatus::NOT_YET_CHECKED);
                 TextInput::make('uptime_status'),
                 //            $table->text('uptime_check_failure_reason')->nullable();
